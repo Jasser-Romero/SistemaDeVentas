@@ -21,9 +21,14 @@ namespace SistemaDeVentas.AppCore.Services
             return productoRepository.Create(t);
         }
 
-        public int Delete(Producto t)
+        public bool Delete(Producto t)
         {
             return productoRepository.Delete(t);
+        }
+
+        public Producto FindById(int id)
+        {
+           return productoRepository.FindById(id);
         }
 
         public List<Producto> GetAll()

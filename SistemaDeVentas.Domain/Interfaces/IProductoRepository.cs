@@ -9,6 +9,6 @@ namespace SistemaDeVentas.Domain.Interfaces
 {
     public interface IProductoRepository : IRepository<Producto>
     {
-
+        Producto FindById(int id);
     }
 }

@@ -21,7 +21,7 @@ namespace SistemaDeVentas.AppCore.Services
             return clienteRepository.Create(t);
         }
 
-        public int Delete(Cliente t)
+        public bool Delete(Cliente t)
         {
             return clienteRepository.Delete(t);
         }

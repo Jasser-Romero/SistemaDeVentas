@@ -43,11 +43,11 @@ namespace SistemaDeVentas
             services.AddScoped<IProductoRepository, EFProductoRepository>();
             services.AddScoped<IClienteService, ClienteService>();
             services.AddScoped<IProductoService, ProductoService>();
-            services.AddScoped<FrmPrincipal>();
+            services.AddScoped<FrmLogin>();
 
             using(var serviceScope = services.BuildServiceProvider())
             {
-                var main = serviceScope.GetRequiredService<FrmPrincipal>();
+                var main = serviceScope.GetRequiredService<FrmLogin>();
                 Application.Run(main);
             }
         }

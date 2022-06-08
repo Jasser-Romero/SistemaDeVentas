@@ -3,8 +3,6 @@ using SistemaDeVentas.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SistemaDeVentas.Infrastructure.Repositories
 {
@@ -17,14 +15,54 @@ namespace SistemaDeVentas.Infrastructure.Repositories
         }
         public int Create(Producto t)
         {
-            sistemaDeVentasDBContext.Productos.Add(t);
-            return sistemaDeVentasDBContext.SaveChanges();
+            try
+            {
+                if (t is null)
+                {
+                    throw new ArgumentNullException(nameof(t));
+                }
+
+                sistemaDeVentasDBContext.Productos.Add(t);
+                return sistemaDeVentasDBContext.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
-        public int Delete(Producto t)
+        public bool Delete(Producto t)
         {
-            sistemaDeVentasDBContext.Productos.Remove(t);
-            return sistemaDeVentasDBContext.SaveChanges();
+            try
+            {
+                if (t is null)
+                {
+                    throw new ArgumentNullException(nameof(t));
+                }
+
+                Producto producto = FindById(t.Id);
+
+                if (producto == null)
+                {
+                    throw new Exception($"El objeto producto con id {t.Id} no existe");
+                }
+
+                sistemaDeVentasDBContext.Productos.Remove(producto);
+
+                int result = sistemaDeVentasDBContext.SaveChanges();
+                return result > 0;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public Producto FindById(int id)
+        {
+            return sistemaDeVentasDBContext.Productos.FirstOrDefault(x => x.Id == id);
         }
 
         public List<Producto> GetAll()
@@ -34,8 +72,34 @@ namespace SistemaDeVentas.Infrastructure.Repositories
 
         public int Update(Producto t)
         {
-            sistemaDeVentasDBContext.Productos.Update(t);
-            return sistemaDeVentasDBContext.SaveChanges();
+            try
+            {
+                if (t is null)
+                {
+                    throw new ArgumentNullException(nameof(t));
+                }
+
+                Producto producto = FindById(t.Id);
+
+                if (producto == null)
+                {
+                    throw new Exception($"El objeto producto con id {t.Id} no existe");
+                }
+
+                producto.Descripcion = t.Descripcion;
+                producto.Nombre = t.Nombre;
+                producto.Categoria = t.Categoria;
+                producto.PrecioVenta = t.PrecioVenta;
+
+
+                sistemaDeVentasDBContext.Productos.Update(producto);
+                return sistemaDeVentasDBContext.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

@@ -17,8 +17,9 @@ namespace SistemaDeVentas.Formularios
         private IProductoService productoService;
         public FrmPrincipal(IClienteService clienteService, IProductoService productoService)
         {
-            this.clienteService = clienteService;
             this.productoService = productoService;
+            this.clienteService = clienteService;
+            
             InitializeComponent();
         }
     }

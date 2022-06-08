@@ -22,10 +22,10 @@ namespace SistemaDeVentas.Infrastructure.Repositories
             return sistemaDeVentasDBContext.SaveChanges();
         }
 
-        public int Delete(Cliente t)
+        public bool Delete(Cliente t)
         {
             sistemaDeVentasDBContext.Clientes.Remove(t);
-            return sistemaDeVentasDBContext.SaveChanges();
+            return sistemaDeVentasDBContext.SaveChanges()>0;
         }
 
         public List<Cliente> GetAll()

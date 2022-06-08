@@ -10,7 +10,7 @@ namespace SistemaDeVentas.Domain.Interfaces
     {
         int Create(T t);
         int Update(T t);
-        int Delete(T t);
+        bool Delete(T t);
         List<T> GetAll();
     }
 }
