@@ -26,6 +26,16 @@ namespace SistemaDeVentas.AppCore.Services
             return productoRepository.Delete(t);
         }
 
+        public List<Producto> FindByCategoria(string categoria)
+        {
+            return productoRepository.FindByCategoria(categoria);
+        }
+
+        public Producto FindByCode(string code)
+        {
+            return productoRepository.FindByCode(code);
+        }
+
         public Producto FindById(int id)
         {
            return productoRepository.FindById(id);

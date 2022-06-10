@@ -10,5 +10,7 @@ namespace SistemaDeVentas.AppCore.Interfaces
     public interface IProductoService : IService<Producto>
     {
         Producto FindById(int id);
+        Producto FindByCode(string code);
+        List<Producto> FindByCategoria(string categoria);
     }
 }

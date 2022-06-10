@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace SistemaDeVentas.Domain.Interfaces
 {
-    public interface IProductoRepository : IRepository<Producto>
+    public interface IVentaRepository : IRepository<Venta>
     {
-        Producto FindById(int id);
-        Producto FindByCode(string code);
-        List<Producto> FindByCategoria(string categoria);
+
     }
 }

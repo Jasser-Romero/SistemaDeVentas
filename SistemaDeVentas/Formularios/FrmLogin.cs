@@ -19,10 +19,12 @@ namespace SistemaDeVentas.Formularios
 
         private IProductoService productoService;
         private IClienteService clienteService;
-        public FrmLogin(IProductoService productoService, IClienteService clienteService)
+        private IVentaService ventaService;
+        public FrmLogin(IProductoService productoService, IClienteService clienteService, IVentaService ventaService)
         {
             this.productoService = productoService;
             this.clienteService = clienteService;
+            this.ventaService = ventaService;
             InitializeComponent();
         }
         //Para arrastrar el formulario
@@ -42,7 +44,7 @@ namespace SistemaDeVentas.Formularios
             if (txtUser.Texts.Equals(username) && txtPassword.Texts.Equals(password))
             {
                 this.Hide();
-                FrmPrincipal frmPrincipal = new FrmPrincipal(clienteService,productoService);
+                FrmPrincipal frmPrincipal = new FrmPrincipal(clienteService,productoService, ventaService);
                 frmPrincipal.ShowDialog();
                 this.Close();
            

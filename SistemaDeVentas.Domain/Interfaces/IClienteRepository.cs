@@ -9,6 +9,8 @@ namespace SistemaDeVentas.Domain.Interfaces
 {
     public interface IClienteRepository : IRepository<Cliente>
     {
-
+        Cliente FindById(int id);
+        Cliente FindByName(string name);
+        Cliente FindByEmail(string email);
     }
 }

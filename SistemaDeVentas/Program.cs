@@ -39,10 +39,15 @@ namespace SistemaDeVentas
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
             services.AddScoped<ISistemaDeVentasDBContext, SistemaDeVentasDBContext>();
+
+            services.AddScoped<IVentaRepository, EFVentaRepository>();
             services.AddScoped<IClienteRepository, EFClienteRepository>();
             services.AddScoped<IProductoRepository, EFProductoRepository>();
+
+            services.AddScoped<IVentaService, VentaService>();
             services.AddScoped<IClienteService, ClienteService>();
             services.AddScoped<IProductoService, ProductoService>();
+
             services.AddScoped<FrmLogin>();
 
             using(var serviceScope = services.BuildServiceProvider())

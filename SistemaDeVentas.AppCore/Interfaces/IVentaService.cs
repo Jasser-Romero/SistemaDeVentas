@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace SistemaDeVentas.AppCore.Interfaces
 {
-    public interface IClienteService : IService<Cliente>
+    public interface IVentaService : IService<Venta>
     {
-        Cliente FindById(int id);
-        Cliente FindByName(string name);
-        Cliente FindByEmail(string email);
 
     }
 }

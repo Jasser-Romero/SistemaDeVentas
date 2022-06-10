@@ -60,6 +60,16 @@ namespace SistemaDeVentas.Infrastructure.Repositories
             }
         }
 
+        public List<Producto> FindByCategoria(string categoria)
+        {
+            return sistemaDeVentasDBContext.Productos.Where(x => x.Categoria.Equals(categoria)).ToList();
+        }
+
+        public Producto FindByCode(string code)
+        {
+            return sistemaDeVentasDBContext.Productos.FirstOrDefault(x => x.Codigo.Equals(code));
+        }
+
         public Producto FindById(int id)
         {
             return sistemaDeVentasDBContext.Productos.FirstOrDefault(x => x.Id == id);

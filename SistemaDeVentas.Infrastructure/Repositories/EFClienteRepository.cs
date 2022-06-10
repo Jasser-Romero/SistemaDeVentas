@@ -28,6 +28,21 @@ namespace SistemaDeVentas.Infrastructure.Repositories
             return sistemaDeVentasDBContext.SaveChanges()>0;
         }
 
+        public Cliente FindByEmail(string email)
+        {
+            return sistemaDeVentasDBContext.Clientes.FirstOrDefault(x => x.Email.Equals(email));
+        }
+
+        public Cliente FindById(int id)
+        {
+            return sistemaDeVentasDBContext.Clientes.FirstOrDefault(x => x.Id == id);
+        }
+
+        public Cliente FindByName(string name)
+        {
+            return sistemaDeVentasDBContext.Clientes.FirstOrDefault(x => x.Nombres.Equals(name));
+        }
+
         public List<Cliente> GetAll()
         {
             return sistemaDeVentasDBContext.Clientes.ToList();
