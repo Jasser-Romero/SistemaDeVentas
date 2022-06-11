@@ -1,4 +1,5 @@
-﻿using SistemaDeVentas.AppCore.Interfaces;
+﻿using Microsoft.EntityFrameworkCore.Storage;
+using SistemaDeVentas.AppCore.Interfaces;
 using SistemaDeVentas.Domain.Entities;
 using SistemaDeVentas.Domain.Interfaces;
 using System;
@@ -12,6 +13,7 @@ namespace SistemaDeVentas.AppCore.Services
     public class ClienteService : IClienteService
     {
         private IClienteRepository clienteRepository;
+
         public ClienteService(IClienteRepository clienteRepository)
         {
             this.clienteRepository = clienteRepository;
