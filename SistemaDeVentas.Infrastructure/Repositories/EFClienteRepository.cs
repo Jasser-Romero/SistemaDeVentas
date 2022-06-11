@@ -146,7 +146,7 @@ namespace SistemaDeVentas.Infrastructure.Repositories
         }
         public IDbContextTransaction GetTransaction()
         {
-            return ((SistemaDeVentasDBContext)sistemaDeVentasDbContext).Database.BeginTransaction();
+            return ((SistemaDeVentasDBContext)sistemaDeVentasDBContext).Database.BeginTransaction();
         }
     }
 }

@@ -49,6 +49,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,6 +80,7 @@
             this.dgvClientes.RowTemplate.Height = 25;
             this.dgvClientes.Size = new System.Drawing.Size(780, 192);
             this.dgvClientes.TabIndex = 2;
+            this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
             // 
             // txtApellidos
             // 
@@ -239,11 +241,22 @@
             this.comboBox1.Size = new System.Drawing.Size(128, 23);
             this.comboBox1.TabIndex = 20;
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(552, 153);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.TabIndex = 21;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 434);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.label9);
@@ -297,5 +310,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

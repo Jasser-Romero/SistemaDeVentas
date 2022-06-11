@@ -8,6 +8,7 @@ namespace SistemaDeVentas.Formularios
     public partial class FrmCliente : Form
     {
         public IClienteService ClienteService { get; set; }
+        public int id = 0;
         public FrmCliente()
         {
             InitializeComponent();
@@ -59,9 +60,14 @@ namespace SistemaDeVentas.Formularios
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+            if(id == 0)
+            {
+                MessageBox.Show("No se ha seleccionado ningun cliente", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
             if (dgvClientes.CurrentRow.Selected == false)
             {
-                MessageBox.Show("Seleccione un cliente");
+                MessageBox.Show("Seleccione un cliente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -86,13 +92,32 @@ namespace SistemaDeVentas.Formularios
         {
             if (dgvClientes.Rows.GetRowCount(DataGridViewElementStates.Selected) == 0)
             {
-                MessageBox.Show("Error, seleccione");
+                MessageBox.Show("Error, seleccione", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             int id = (int)dgvClientes.CurrentRow.Cells[0].Value;
             Cliente cliente = ClienteService.FindById(id);
             ClienteService.Delete(cliente);
             LoadDatagridView();
+            EmptyTextBoxes();
+        }
+
+        private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            id = (int)dgvClientes.CurrentRow.Cells[0].Value;
+            Cliente cliente = ClienteService.FindById(id);
+            txtNombres.Text = cliente.Nombres;
+            txtApellidos.Text = cliente.Apellidos;
+            txtCedula.Text = cliente.Cedula;
+            rtbDireccion.Text = cliente.Direccion;
+            txtEmail.Text = cliente.Email;
+            txtTelefono.Text = cliente.Telefono;
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            EmptyTextBoxes();
+            id = 0;
         }
     }
 }
