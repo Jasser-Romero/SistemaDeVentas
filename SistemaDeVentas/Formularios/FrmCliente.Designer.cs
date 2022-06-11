@@ -176,6 +176,7 @@
             this.btnEliminar.TabIndex = 14;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnActualizar
             // 
@@ -185,6 +186,7 @@
             this.btnActualizar.TabIndex = 15;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // label7
             // 
