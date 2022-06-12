@@ -1,6 +1,7 @@
 ﻿using SistemaDeVentas.AppCore.Interfaces;
 using SistemaDeVentas.Domain.Entities;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace SistemaDeVentas.Formularios
@@ -22,6 +23,11 @@ namespace SistemaDeVentas.Formularios
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            if (!ValidarCampos())
+            {
+                MessageBox.Show("Todos los campos deben ser llenados");
+                return;
+            }
             Cliente cliente = new()
             {
                 Nombres = txtNombres.Text,
@@ -60,9 +66,9 @@ namespace SistemaDeVentas.Formularios
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            if(id == 0)
+            if (id == 0)
             {
-                MessageBox.Show("No se ha seleccionado ningun cliente", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("No se ha seleccionado ningun cliente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (dgvClientes.CurrentRow.Selected == false)
@@ -118,6 +124,43 @@ namespace SistemaDeVentas.Formularios
         {
             EmptyTextBoxes();
             id = 0;
+        }
+
+        private void txtBusqueda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (cmbBusqueda.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar una opcion");
+                    return;
+                }
+
+                //TODO: Agregar filtro de busqueda
+                switch (cmbBusqueda.SelectedIndex)
+                {
+                    case 0:
+                        break;
+
+                    case 1:
+                        break;
+
+                    case 2:
+                        break;
+
+                }
+            }
+        }
+
+        private bool ValidarCampos()
+        {
+            if (string.IsNullOrEmpty(txtNombres.Text) || string.IsNullOrEmpty(txtApellidos.Text) ||
+                string.IsNullOrEmpty(txtCedula.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtTelefono.Text) ||
+                string.IsNullOrEmpty(rtbDireccion.Text))
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
