@@ -112,6 +112,9 @@
             this.txtPassword.TabIndex = 2;
             this.txtPassword.Texts = "";
             this.txtPassword.UnderlinedStyle = false;
+            this.txtPassword._TextChanged += new System.EventHandler(this.txtPassword__TextChanged);
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // btnSesion
             // 

@@ -83,6 +83,8 @@ namespace SistemaDeVentas.Formularios
         private void btnrjVentas_Click(object sender, EventArgs e)
         {
             FrmVentas frmVentas = new FrmVentas();
+            frmVentas.ProductoService = productoService;
+            frmVentas.ClienteService = clienteService;
             frmVentas.VentaService = ventaService;
             AbrirFormHija(frmVentas);
         }

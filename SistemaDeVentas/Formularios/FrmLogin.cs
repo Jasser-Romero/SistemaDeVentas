@@ -72,5 +72,26 @@ namespace SistemaDeVentas.Formularios
         {
            this.WindowState=FormWindowState.Minimized;
         }
+
+        private void txtPassword__TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            //if(e.KeyCode == Keys.Enter)
+            //{
+            //    btnSesion_Click(sender, e);
+            //}
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //if (e.KeyChar.Equals(Keys.Enter))
+            //{
+            //    btnSesion_Click(sender, e);
+            //}
+        }
     }
 }

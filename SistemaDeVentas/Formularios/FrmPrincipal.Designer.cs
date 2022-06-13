@@ -247,7 +247,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(200, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(789, 25);
+            this.panel2.Size = new System.Drawing.Size(832, 25);
             this.panel2.TabIndex = 6;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
@@ -281,14 +281,14 @@
             this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedor.Location = new System.Drawing.Point(200, 25);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(789, 507);
+            this.pnlContenedor.Size = new System.Drawing.Size(832, 507);
             this.pnlContenedor.TabIndex = 7;
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 532);
+            this.ClientSize = new System.Drawing.Size(1032, 532);
             this.Controls.Add(this.pnlContenedor);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

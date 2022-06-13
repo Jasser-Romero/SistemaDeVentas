@@ -8,8 +8,8 @@ namespace SistemaDeVentas.Domain.Entities
     public partial class Venta
     {
         public int Id { get; set; }
-        public int ProductoId { get; set; }
-        public int ClienteId { get; set; }
+        public int? ProductoId { get; set; }
+        public int? ClienteId { get; set; }
         public DateTime Fecha { get; set; }
         public string Codigo { get; set; }
         public decimal Total { get; set; }
