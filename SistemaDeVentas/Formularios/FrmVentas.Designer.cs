@@ -56,12 +56,19 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.btnRealizarVenta = new System.Windows.Forms.Button();
+            this.nudCantidadVender = new System.Windows.Forms.NumericUpDown();
+            this.lblCantidad = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblTotalPagar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gpbProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbProducto)).BeginInit();
             this.gpbCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadVender)).BeginInit();
             this.SuspendLayout();
             // 
             // label10
@@ -310,8 +317,9 @@
             this.dataGridView1.Location = new System.Drawing.Point(16, 388);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(515, 176);
+            this.dataGridView1.Size = new System.Drawing.Size(440, 176);
             this.dataGridView1.TabIndex = 48;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnAgregarProducto
             // 
@@ -325,7 +333,7 @@
             // 
             // btnRealizarVenta
             // 
-            this.btnRealizarVenta.Location = new System.Drawing.Point(584, 448);
+            this.btnRealizarVenta.Location = new System.Drawing.Point(509, 460);
             this.btnRealizarVenta.Name = "btnRealizarVenta";
             this.btnRealizarVenta.Size = new System.Drawing.Size(135, 45);
             this.btnRealizarVenta.TabIndex = 50;
@@ -333,11 +341,69 @@
             this.btnRealizarVenta.UseVisualStyleBackColor = true;
             this.btnRealizarVenta.Click += new System.EventHandler(this.btnRealizarVenta_Click);
             // 
+            // nudCantidadVender
+            // 
+            this.nudCantidadVender.Location = new System.Drawing.Point(715, 339);
+            this.nudCantidadVender.Name = "nudCantidadVender";
+            this.nudCantidadVender.Size = new System.Drawing.Size(139, 23);
+            this.nudCantidadVender.TabIndex = 51;
+            // 
+            // lblCantidad
+            // 
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Location = new System.Drawing.Point(754, 316);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(58, 15);
+            this.lblCantidad.TabIndex = 52;
+            this.lblCantidad.Text = "Cantidad:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(644, 14);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 15);
+            this.label4.TabIndex = 53;
+            this.label4.Text = "Fecha:";
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(717, 14);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(29, 15);
+            this.lblFecha.TabIndex = 54;
+            this.lblFecha.Text = "N/A";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(538, 401);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 15);
+            this.label5.TabIndex = 55;
+            this.label5.Text = "Total a pagar:";
+            // 
+            // lblTotalPagar
+            // 
+            this.lblTotalPagar.AutoSize = true;
+            this.lblTotalPagar.Location = new System.Drawing.Point(566, 426);
+            this.lblTotalPagar.Name = "lblTotalPagar";
+            this.lblTotalPagar.Size = new System.Drawing.Size(29, 15);
+            this.lblTotalPagar.TabIndex = 56;
+            this.lblTotalPagar.Text = "N/A";
+            // 
             // FrmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(866, 577);
+            this.Controls.Add(this.lblTotalPagar);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblFecha);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblCantidad);
+            this.Controls.Add(this.nudCantidadVender);
             this.Controls.Add(this.btnRealizarVenta);
             this.Controls.Add(this.btnAgregarProducto);
             this.Controls.Add(this.dataGridView1);
@@ -350,6 +416,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmVentas";
             this.Text = "FrmVentas";
+            this.Load += new System.EventHandler(this.FrmVentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gpbProducto.ResumeLayout(false);
@@ -358,6 +425,7 @@
             this.gpbCliente.ResumeLayout(false);
             this.gpbCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadVender)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -392,5 +460,11 @@
         private System.Windows.Forms.Button btnAgregarProducto;
         private System.Windows.Forms.Button btnBuscarCliente;
         private System.Windows.Forms.Button btnRealizarVenta;
+        private System.Windows.Forms.NumericUpDown nudCantidadVender;
+        private System.Windows.Forms.Label lblCantidad;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblTotalPagar;
     }
 }

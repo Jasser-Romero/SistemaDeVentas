@@ -100,7 +100,7 @@ namespace SistemaDeVentas.Infrastructure.Repositories
                 producto.Nombre = t.Nombre;
                 producto.Categoria = t.Categoria;
                 producto.PrecioVenta = t.PrecioVenta;
-
+                producto.Stock = t.Stock;
 
                 sistemaDeVentasDBContext.Productos.Update(producto);
                 return sistemaDeVentasDBContext.SaveChanges();
