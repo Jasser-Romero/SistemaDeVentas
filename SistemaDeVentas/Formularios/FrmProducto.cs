@@ -17,7 +17,6 @@ namespace SistemaDeVentas.Formularios
     {
         public IProductoService ProductoService { get; set; }
         int id = 0;
-        string path;
         public FrmProducto()
         {
             InitializeComponent();
@@ -57,6 +56,7 @@ namespace SistemaDeVentas.Formularios
             dgvproductos.DataSource = null;
             dgvproductos.DataSource = ProductoService.GetAll();
             dgvproductos.Columns[7].Visible = false;
+            dgvproductos.Columns[6].DefaultCellStyle.Format = "N1";
         }
 
         private void btnAgregar_Click_1(object sender, EventArgs e)
@@ -157,13 +157,18 @@ namespace SistemaDeVentas.Formularios
                 return;
             }
 
-            byte[] file = null;
-            Stream myStream = openFileDialog1.OpenFile();
-            using (MemoryStream ms = new MemoryStream())
-            {
-                myStream.CopyTo(ms);
-                file = ms.ToArray();
-            }
+            //TODO: Validar el openFileDialog para que no tire error
+            //byte[] file = null;
+            //if(openFileDialog1.OpenFile() != null)
+            //{
+            //    Stream myStream = openFileDialog1.OpenFile();
+            //    using (MemoryStream ms = new MemoryStream())
+            //    {
+            //        myStream.CopyTo(ms);
+            //        file = ms.ToArray();
+            //    }
+            //}
+            
 
             Producto producto = new Producto()
             {
@@ -173,8 +178,7 @@ namespace SistemaDeVentas.Formularios
                 Descripcion = rtbDescripcion.Text,
                 Codigo = txtCodigo.Text,
                 Stock = int.Parse(txtExistencias.Text),
-                PrecioVenta = decimal.Parse(txtPrecVentas.Text),
-                Imagen = file
+                PrecioVenta = decimal.Parse(txtPrecVentas.Text)
             };
             ProductoService.Update(producto);
             dgvproductos.DataSource = ProductoService.GetAll();

@@ -9,6 +9,6 @@ namespace SistemaDeVentas.Domain.Interfaces
 {
     public interface IVentaRepository : IRepository<Venta>
     {
-
+        List<Venta> FindByCode(string code);
     }
 }

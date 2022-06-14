@@ -25,11 +25,11 @@ namespace SistemaDeVentas.Domain.SistemaDeVentasEntities
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=localhost\\SQLEXPRESS;Initial Catalog=SistemaDeVentasDB;Integrated Security=true;");
-            }
+//            if (!optionsBuilder.IsConfigured)
+//            {
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+//                optionsBuilder.UseSqlServer("Data Source=localhost\\SQLEXPRESS;Initial Catalog=SistemaDeVentasDB;Integrated Security=true;");
+//            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -125,7 +125,19 @@ namespace SistemaDeVentas.Domain.SistemaDeVentasEntities
             {
                 entity.Property(e => e.Id).HasColumnName("id");
 
-                entity.Property(e => e.ClienteId).HasColumnName("clienteId");
+                entity.Property(e => e.Cantidad).HasColumnName("cantidad");
+
+                entity.Property(e => e.Categoria)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("categoria");
+
+                entity.Property(e => e.Cliente)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("cliente");
 
                 entity.Property(e => e.Codigo)
                     .IsRequired()
@@ -133,27 +145,35 @@ namespace SistemaDeVentas.Domain.SistemaDeVentasEntities
                     .IsUnicode(false)
                     .HasColumnName("codigo");
 
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("email");
+
+                entity.Property(e => e.Estado)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("estado");
+
                 entity.Property(e => e.Fecha)
                     .HasColumnType("date")
                     .HasColumnName("fecha");
 
-                entity.Property(e => e.ProductoId).HasColumnName("productoId");
+                entity.Property(e => e.Precio)
+                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnName("precio");
+
+                entity.Property(e => e.Producto)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("producto");
 
                 entity.Property(e => e.Total)
                     .HasColumnType("decimal(18, 0)")
                     .HasColumnName("total");
-
-                entity.HasOne(d => d.Cliente)
-                    .WithMany(p => p.Venta)
-                    .HasForeignKey(d => d.ClienteId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_cliente");
-
-                entity.HasOne(d => d.Producto)
-                    .WithMany(p => p.Venta)
-                    .HasForeignKey(d => d.ProductoId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_producto");
             });
 
             OnModelCreatingPartial(modelBuilder);

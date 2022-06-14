@@ -97,16 +97,16 @@ namespace SistemaDeVentas.Infrastructure.Repositories
             {
                 if (string.IsNullOrWhiteSpace(name))
                 {
-                    throw new Exception($"El nombre no tiene le formato correcto");
-                    return sistemaDeVentasDBContext.Clientes
-                                            .FirstOrDefault(x => x.Nombres.Equals(name, StringComparison.CurrentCultureIgnoreCase));
+                    throw new Exception($"El nombre no tiene el formato correcto");
+                    
                 }
+                return sistemaDeVentasDBContext.Clientes
+                                            .FirstOrDefault(x => x.Nombres.Equals(name));
             }
             catch
             {
                 throw;
             }
-            return sistemaDeVentasDBContext.Clientes.FirstOrDefault(x => x.Nombres.Equals(name));
         }
 
         public List<Cliente> GetAll()

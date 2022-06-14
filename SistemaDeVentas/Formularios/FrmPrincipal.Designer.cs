@@ -46,6 +46,7 @@
             this.pboxMinimize = new System.Windows.Forms.PictureBox();
             this.pboxCerrar = new System.Windows.Forms.PictureBox();
             this.pnlContenedor = new System.Windows.Forms.Panel();
+            this.btnrjDetalle = new RJCodeAdvance.RJControls.RJButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -58,6 +59,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(141)))), ((int)(((byte)(232)))));
+            this.panel1.Controls.Add(this.btnrjDetalle);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox2);
@@ -140,7 +142,7 @@
             this.btnrjGraficas.ForeColor = System.Drawing.Color.White;
             this.btnrjGraficas.Image = ((System.Drawing.Image)(resources.GetObject("btnrjGraficas.Image")));
             this.btnrjGraficas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnrjGraficas.Location = new System.Drawing.Point(20, 402);
+            this.btnrjGraficas.Location = new System.Drawing.Point(21, 469);
             this.btnrjGraficas.Name = "btnrjGraficas";
             this.btnrjGraficas.Size = new System.Drawing.Size(156, 45);
             this.btnrjGraficas.TabIndex = 4;
@@ -168,6 +170,7 @@
             this.btnrjReporte.Text = "Reporte";
             this.btnrjReporte.TextColor = System.Drawing.Color.White;
             this.btnrjReporte.UseVisualStyleBackColor = false;
+            this.btnrjReporte.Click += new System.EventHandler(this.btnrjReporte_Click);
             // 
             // btnrjVentas
             // 
@@ -284,6 +287,28 @@
             this.pnlContenedor.Size = new System.Drawing.Size(865, 683);
             this.pnlContenedor.TabIndex = 7;
             // 
+            // btnrjDetalle
+            // 
+            this.btnrjDetalle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(141)))), ((int)(((byte)(232)))));
+            this.btnrjDetalle.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(141)))), ((int)(((byte)(232)))));
+            this.btnrjDetalle.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnrjDetalle.BorderRadius = 10;
+            this.btnrjDetalle.BorderSize = 0;
+            this.btnrjDetalle.FlatAppearance.BorderSize = 0;
+            this.btnrjDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnrjDetalle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnrjDetalle.ForeColor = System.Drawing.Color.White;
+            this.btnrjDetalle.Image = ((System.Drawing.Image)(resources.GetObject("btnrjDetalle.Image")));
+            this.btnrjDetalle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnrjDetalle.Location = new System.Drawing.Point(21, 406);
+            this.btnrjDetalle.Name = "btnrjDetalle";
+            this.btnrjDetalle.Size = new System.Drawing.Size(156, 45);
+            this.btnrjDetalle.TabIndex = 10;
+            this.btnrjDetalle.Text = "Detalle";
+            this.btnrjDetalle.TextColor = System.Drawing.Color.White;
+            this.btnrjDetalle.UseVisualStyleBackColor = false;
+            this.btnrjDetalle.Click += new System.EventHandler(this.btnrjDetalle_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -326,5 +351,6 @@
         private System.Windows.Forms.Panel pnlContenedor;
         private System.Windows.Forms.PictureBox pboxMinimize;
         private System.Windows.Forms.PictureBox pboxCerrar;
+        private RJCodeAdvance.RJControls.RJButton btnrjDetalle;
     }
 }

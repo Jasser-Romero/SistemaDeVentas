@@ -9,6 +9,6 @@ namespace SistemaDeVentas.AppCore.Interfaces
 {
     public interface IVentaService : IService<Venta>
     {
-
+        List<Venta> FindByCode(string code);
     }
 }

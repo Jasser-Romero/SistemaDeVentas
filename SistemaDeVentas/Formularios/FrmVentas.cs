@@ -15,10 +15,12 @@ namespace SistemaDeVentas.Formularios
 {
     public partial class FrmVentas : Form
     {
+        List<int> productosIds = new List<int>();
+        List<int> stocks = new List<int>();
         int productoId = 0;
         int clienteId = 0;
         private List<Producto> productos = new List<Producto>();
-        private List<ProductoVentaDTO> vender = new List<ProductoVentaDTO>();
+        public List<ProductoVentaDTO> vender = new List<ProductoVentaDTO>();
         public IVentaService VentaService { get; set; }
         public IProductoService ProductoService { get; set; }
         public IClienteService ClienteService { get; set; }
@@ -32,11 +34,15 @@ namespace SistemaDeVentas.Formularios
             FrmBusqueda frmBusqueda = new FrmBusqueda();
             frmBusqueda.dgvBusqueda.DataSource = ProductoService.GetAll();
             frmBusqueda.dgvBusqueda.Columns[7].Visible = false;
-            frmBusqueda.dgvBusqueda.Columns[8].Visible = false;
             frmBusqueda.ShowDialog();
 
             productoId = frmBusqueda.busquedaId;
             Producto producto = ProductoService.FindById(productoId);
+            if(producto == null)
+            {
+                MessageBox.Show("Error");
+                return;
+            }
             txtNombre.Text = producto.Nombre;
             txtExistencias.Text = producto.Stock.ToString();
             txtCategoria.Text = producto.Categoria;
@@ -55,6 +61,7 @@ namespace SistemaDeVentas.Formularios
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = vender;
             dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[4].DefaultCellStyle.Format = "N1";
         }
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
@@ -68,6 +75,11 @@ namespace SistemaDeVentas.Formularios
                         exist = true;
                         return;
                     }
+                }
+                if (string.IsNullOrWhiteSpace(txtCodigoVenta.Text))
+                {
+                    MessageBox.Show("Un campo se encuentra vacio");
+                    return;
                 }
                 if (int.Parse(txtExistencias.Text) < (int)nudCantidadVender.Value)
                 {
@@ -88,9 +100,11 @@ namespace SistemaDeVentas.Formularios
                     Precio = producto.PrecioVenta,
                     SubTotal = ((int)nudCantidadVender.Value * producto.PrecioVenta)
                 };
-                
+
+                stocks.Add(productoVentaDTO.Cantidad);
                 productos.Add(producto);
                 vender.Add(productoVentaDTO);
+                productosIds.Add(producto.Id);
 
                 CalcularTotal();
 
@@ -115,20 +129,47 @@ namespace SistemaDeVentas.Formularios
         private void btnRealizarVenta_Click(object sender, EventArgs e)
         {
             //TODO: Hacer este boton y validar stock a vender
-            
-            if(productoId == 0)
+            int i = 0;
+            if(productoId == 0 || clienteId == 0)
             {
-                MessageBox.Show("No ha seleccionado ningun producto");
+                MessageBox.Show("No ha seleccionado ningun producto o ningun cliente","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
-            Producto producto = ProductoService.FindById(productoId);
-            producto.Stock -= (int)nudCantidadVender.Value;
+            if (!vender.Any())
+            {
+                MessageBox.Show("No se ha agregado ningun producto");
+                return;
+            }
+            Cliente cliente = ClienteService.FindById(clienteId);
 
-            ProductoService.Update(producto);
+            foreach (int id in productosIds)
+            {
+                Producto producto = ProductoService.FindById(id);
+                Venta venta = new Venta()
+                {
+                    Categoria = producto.Categoria,
+                    Cliente = cliente.Nombres,
+                    Producto = producto.Nombre,
+                    Cantidad = stocks[i],
+                    Precio = producto.PrecioVenta,
+                    Codigo = txtCodigoVenta.Text,
+                    Email = cliente.Email,
+                    Estado = "Activo",
+                    Fecha = DateTime.Today.Date,
+                    Total = CalcularTotal()
+                };
+                VentaService.Create(venta);
 
+                producto.Stock -= stocks[i];
+
+                ProductoService.Update(producto);
+                i++;
+            }
+            
+            MessageBox.Show("La venta se ha realizado con exito", "Informacion",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
         }
-        private void CalcularTotal()
+        private decimal CalcularTotal()
         {
             decimal total = 0;
             if(dataGridView1.Rows.Count > 0)
@@ -137,6 +178,7 @@ namespace SistemaDeVentas.Formularios
                     total += producto.SubTotal;
             }
             lblTotalPagar.Text = total.ToString();
+            return total;
         }
         private void FrmVentas_Load(object sender, EventArgs e)
         {

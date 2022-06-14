@@ -26,6 +26,11 @@ namespace SistemaDeVentas.AppCore.Services
             return ventaRepository.Delete(t);
         }
 
+        public List<Venta> FindByCode(string code)
+        {
+            return ventaRepository.FindByCode(code);
+        }
+
         public List<Venta> GetAll()
         {
             return ventaRepository.GetAll();

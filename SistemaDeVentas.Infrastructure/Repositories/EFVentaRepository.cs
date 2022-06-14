@@ -27,6 +27,11 @@ namespace SistemaDeVentas.Infrastructure.Repositories
             return sistemaDeVentasDBContext.SaveChanges() > 0;
         }
 
+        public List<Venta> FindByCode(string code)
+        {
+            return sistemaDeVentasDBContext.Ventas.Where(x => x.Codigo.Equals(code)).ToList();
+        }
+
         public List<Venta> GetAll()
         {
             return sistemaDeVentasDBContext.Ventas.ToList();

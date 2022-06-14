@@ -132,5 +132,20 @@ namespace SistemaDeVentas.Formularios
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        private void btnrjReporte_Click(object sender, EventArgs e)
+        {
+            FrmReportes frmReportes = new FrmReportes();
+            frmReportes.VentaService = ventaService;
+            frmReportes.ProductoService = productoService;
+            AbrirFormHija(frmReportes);
+        }
+
+        private void btnrjDetalle_Click(object sender, EventArgs e)
+        {
+            FrmDetalleVentas frmDetalleVentas = new FrmDetalleVentas();
+            frmDetalleVentas.VentaService=ventaService;
+            AbrirFormHija(frmDetalleVentas);
+        }
     }
 }

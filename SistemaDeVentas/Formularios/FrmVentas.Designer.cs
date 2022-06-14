@@ -62,6 +62,8 @@
             this.lblFecha = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblTotalPagar = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtCodigoVenta = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gpbProducto.SuspendLayout();
@@ -393,11 +395,29 @@
             this.lblTotalPagar.TabIndex = 56;
             this.lblTotalPagar.Text = "N/A";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(257, 18);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 15);
+            this.label6.TabIndex = 57;
+            this.label6.Text = "Codigo venta:";
+            // 
+            // txtCodigoVenta
+            // 
+            this.txtCodigoVenta.Location = new System.Drawing.Point(344, 15);
+            this.txtCodigoVenta.Name = "txtCodigoVenta";
+            this.txtCodigoVenta.Size = new System.Drawing.Size(155, 23);
+            this.txtCodigoVenta.TabIndex = 58;
+            // 
             // FrmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(866, 577);
+            this.Controls.Add(this.txtCodigoVenta);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.lblTotalPagar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblFecha);
@@ -466,5 +486,7 @@
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblTotalPagar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtCodigoVenta;
     }
 }
