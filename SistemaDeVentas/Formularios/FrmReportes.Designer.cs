@@ -99,6 +99,7 @@
             this.btnRealizarVenta.TabIndex = 66;
             this.btnRealizarVenta.Text = "Imprimir recibo";
             this.btnRealizarVenta.UseVisualStyleBackColor = true;
+            this.btnRealizarVenta.Click += new System.EventHandler(this.btnRealizarVenta_Click);
             // 
             // dataGridView1
             // 

@@ -9,6 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
+using System.IO;
 
 namespace SistemaDeVentas.Formularios
 {
@@ -62,6 +66,7 @@ namespace SistemaDeVentas.Formularios
                     products.Add(productoVentaDTO);
                 }
                 LoadDataGridView();
+                lblTotalPagar.Text = products.Sum(x => x.SubTotal).ToString();
             }
             catch (Exception)
             {
@@ -98,6 +103,73 @@ namespace SistemaDeVentas.Formularios
             catch (Exception)
             {
                 MessageBox.Show("Error");
+                return;
+            }
+        }
+
+        private void btnRealizarVenta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!products.Any())
+                {
+                    return;
+                }
+                SaveFileDialog guardar = new SaveFileDialog();
+                guardar.Filter = "Archivo PDF|*.pdf";
+                guardar.FileName = "Recibo" + ".pdf";
+
+                string paginaHtmlTexto = Resource1.factura.ToString();
+                paginaHtmlTexto = paginaHtmlTexto.Replace("@CLIENTE", txtNombreCliente.Text);
+                paginaHtmlTexto = paginaHtmlTexto.Replace("@DOCUMENTO", txtCodigoVenta.Text);
+                paginaHtmlTexto = paginaHtmlTexto.Replace("@FECHA", DateTime.Today.ToString("d"));
+                paginaHtmlTexto = paginaHtmlTexto.Replace("@DIRECCION", "Del pali San Judas 3 cuadras al sur");
+                paginaHtmlTexto = paginaHtmlTexto.Replace("@TELEFONO", "8913132");
+
+                string filas = string.Empty;
+                decimal total = 0.00M;
+
+                foreach (ProductoVentaDTO venta in products)
+                {
+                    filas += "<tr>";
+                    filas += $"<td>{venta.Cantidad}</td>";
+                    filas += $"<td>{venta.Producto}</td>";
+                    filas += $"<td>${venta.Precio}</td>";
+                    filas += $"<td>${venta.SubTotal}</td>";
+                    filas += $"</tr>";
+                    total += venta.SubTotal;
+                }
+
+                paginaHtmlTexto = paginaHtmlTexto.Replace("@FILAS", filas);
+                paginaHtmlTexto = paginaHtmlTexto.Replace("@TOTAL", total.ToString());
+
+                if (guardar.ShowDialog() == DialogResult.OK)
+                {
+                    using (FileStream stream = new FileStream(guardar.FileName, FileMode.Create))
+                    {
+                        Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+
+                        PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+
+                        pdfDoc.Open();
+
+                        pdfDoc.Add(new Phrase(""));
+
+                        using (StringReader sr = new StringReader(paginaHtmlTexto))
+                        {
+                            XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                        }
+
+                        pdfDoc.Close();
+                        stream.Close();
+                    }
+                    MessageBox.Show("Se ha guardado el archivo con exito");
+
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error");
                 return;
             }
         }
