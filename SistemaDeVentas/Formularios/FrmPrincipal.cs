@@ -147,5 +147,19 @@ namespace SistemaDeVentas.Formularios
             frmDetalleVentas.VentaService=ventaService;
             AbrirFormHija(frmDetalleVentas);
         }
+
+        private void pboxMaximizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState= FormWindowState.Maximized;
+            pboxMaximizar.Visible=false;
+            pboxRestaurar.Visible = true;
+        }
+
+        private void pboxRestaurar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            pboxRestaurar.Visible = false;
+            pboxMaximizar.Visible = true;
+        }
     }
 }

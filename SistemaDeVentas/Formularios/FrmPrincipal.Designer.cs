@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnrjDetalle = new RJCodeAdvance.RJControls.RJButton();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -43,15 +44,18 @@
             this.btnrjClientes = new RJCodeAdvance.RJControls.RJButton();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pboxMaximizar = new System.Windows.Forms.PictureBox();
+            this.pboxRestaurar = new System.Windows.Forms.PictureBox();
             this.pboxMinimize = new System.Windows.Forms.PictureBox();
             this.pboxCerrar = new System.Windows.Forms.PictureBox();
             this.pnlContenedor = new System.Windows.Forms.Panel();
-            this.btnrjDetalle = new RJCodeAdvance.RJControls.RJButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxMaximizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxCerrar)).BeginInit();
             this.SuspendLayout();
@@ -76,6 +80,28 @@
             this.panel1.Size = new System.Drawing.Size(200, 708);
             this.panel1.TabIndex = 5;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // btnrjDetalle
+            // 
+            this.btnrjDetalle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(141)))), ((int)(((byte)(232)))));
+            this.btnrjDetalle.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(141)))), ((int)(((byte)(232)))));
+            this.btnrjDetalle.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnrjDetalle.BorderRadius = 10;
+            this.btnrjDetalle.BorderSize = 0;
+            this.btnrjDetalle.FlatAppearance.BorderSize = 0;
+            this.btnrjDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnrjDetalle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnrjDetalle.ForeColor = System.Drawing.Color.White;
+            this.btnrjDetalle.Image = ((System.Drawing.Image)(resources.GetObject("btnrjDetalle.Image")));
+            this.btnrjDetalle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnrjDetalle.Location = new System.Drawing.Point(21, 406);
+            this.btnrjDetalle.Name = "btnrjDetalle";
+            this.btnrjDetalle.Size = new System.Drawing.Size(156, 45);
+            this.btnrjDetalle.TabIndex = 10;
+            this.btnrjDetalle.Text = "Detalle";
+            this.btnrjDetalle.TextColor = System.Drawing.Color.White;
+            this.btnrjDetalle.UseVisualStyleBackColor = false;
+            this.btnrjDetalle.Click += new System.EventHandler(this.btnrjDetalle_Click);
             // 
             // label2
             // 
@@ -245,6 +271,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pboxMaximizar);
+            this.panel2.Controls.Add(this.pboxRestaurar);
             this.panel2.Controls.Add(this.pboxMinimize);
             this.panel2.Controls.Add(this.pboxCerrar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -254,12 +282,39 @@
             this.panel2.TabIndex = 6;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
+            // pboxMaximizar
+            // 
+            this.pboxMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pboxMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pboxMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("pboxMaximizar.Image")));
+            this.pboxMaximizar.Location = new System.Drawing.Point(795, 2);
+            this.pboxMaximizar.Name = "pboxMaximizar";
+            this.pboxMaximizar.Size = new System.Drawing.Size(27, 21);
+            this.pboxMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pboxMaximizar.TabIndex = 11;
+            this.pboxMaximizar.TabStop = false;
+            this.pboxMaximizar.Click += new System.EventHandler(this.pboxMaximizar_Click);
+            // 
+            // pboxRestaurar
+            // 
+            this.pboxRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pboxRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pboxRestaurar.Image = ((System.Drawing.Image)(resources.GetObject("pboxRestaurar.Image")));
+            this.pboxRestaurar.Location = new System.Drawing.Point(795, 2);
+            this.pboxRestaurar.Name = "pboxRestaurar";
+            this.pboxRestaurar.Size = new System.Drawing.Size(27, 21);
+            this.pboxRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pboxRestaurar.TabIndex = 12;
+            this.pboxRestaurar.TabStop = false;
+            this.pboxRestaurar.Click += new System.EventHandler(this.pboxRestaurar_Click);
+            // 
             // pboxMinimize
             // 
+            this.pboxMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pboxMinimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pboxMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pboxMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pboxMinimize.Image")));
-            this.pboxMinimize.Location = new System.Drawing.Point(727, 5);
+            this.pboxMinimize.Location = new System.Drawing.Point(767, 4);
             this.pboxMinimize.Name = "pboxMinimize";
             this.pboxMinimize.Size = new System.Drawing.Size(22, 17);
             this.pboxMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -269,9 +324,10 @@
             // 
             // pboxCerrar
             // 
+            this.pboxCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pboxCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pboxCerrar.Image = ((System.Drawing.Image)(resources.GetObject("pboxCerrar.Image")));
-            this.pboxCerrar.Location = new System.Drawing.Point(755, 5);
+            this.pboxCerrar.Location = new System.Drawing.Point(828, 4);
             this.pboxCerrar.Name = "pboxCerrar";
             this.pboxCerrar.Size = new System.Drawing.Size(22, 17);
             this.pboxCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -286,28 +342,6 @@
             this.pnlContenedor.Name = "pnlContenedor";
             this.pnlContenedor.Size = new System.Drawing.Size(865, 683);
             this.pnlContenedor.TabIndex = 7;
-            // 
-            // btnrjDetalle
-            // 
-            this.btnrjDetalle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(141)))), ((int)(((byte)(232)))));
-            this.btnrjDetalle.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(141)))), ((int)(((byte)(232)))));
-            this.btnrjDetalle.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnrjDetalle.BorderRadius = 10;
-            this.btnrjDetalle.BorderSize = 0;
-            this.btnrjDetalle.FlatAppearance.BorderSize = 0;
-            this.btnrjDetalle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnrjDetalle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnrjDetalle.ForeColor = System.Drawing.Color.White;
-            this.btnrjDetalle.Image = ((System.Drawing.Image)(resources.GetObject("btnrjDetalle.Image")));
-            this.btnrjDetalle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnrjDetalle.Location = new System.Drawing.Point(21, 406);
-            this.btnrjDetalle.Name = "btnrjDetalle";
-            this.btnrjDetalle.Size = new System.Drawing.Size(156, 45);
-            this.btnrjDetalle.TabIndex = 10;
-            this.btnrjDetalle.Text = "Detalle";
-            this.btnrjDetalle.TextColor = System.Drawing.Color.White;
-            this.btnrjDetalle.UseVisualStyleBackColor = false;
-            this.btnrjDetalle.Click += new System.EventHandler(this.btnrjDetalle_Click);
             // 
             // FrmPrincipal
             // 
@@ -328,6 +362,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pboxMaximizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxRestaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxCerrar)).EndInit();
             this.ResumeLayout(false);
@@ -352,5 +388,7 @@
         private System.Windows.Forms.PictureBox pboxMinimize;
         private System.Windows.Forms.PictureBox pboxCerrar;
         private RJCodeAdvance.RJControls.RJButton btnrjDetalle;
+        private System.Windows.Forms.PictureBox pboxMaximizar;
+        private System.Windows.Forms.PictureBox pboxRestaurar;
     }
 }

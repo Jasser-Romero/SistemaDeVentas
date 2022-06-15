@@ -94,7 +94,7 @@ namespace SistemaDeVentas.Formularios
             }
             catch (Exception)
             {
-                MessageBox.Show("Ha surgido un error","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Ha surgido un error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -122,12 +122,12 @@ namespace SistemaDeVentas.Formularios
         {
             openFileDialog1.Filter = "Archivos jpg (*.jpg)|*.jpg|Archivos png (*.png)|*.png";
             openFileDialog1.FilterIndex = 1;
-            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 pbProducto.Image = Image.FromFile(openFileDialog1.FileName);
                 pbProducto.SizeMode = PictureBoxSizeMode.StretchImage;
             }
-            
+
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
@@ -168,7 +168,7 @@ namespace SistemaDeVentas.Formularios
             //        file = ms.ToArray();
             //    }
             //}
-            
+
 
             Producto producto = new Producto()
             {
@@ -188,6 +188,18 @@ namespace SistemaDeVentas.Formularios
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        private void txtExistencias_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >=32 && e.KeyChar<=47) || (e.KeyChar>=58 && e.KeyChar<=255))
+            {
+               
+                MessageBox.Show("Solo numeros debe ingresar");
+                e.Handled=true;
+                return;
+            }
+
         }
     }
 }

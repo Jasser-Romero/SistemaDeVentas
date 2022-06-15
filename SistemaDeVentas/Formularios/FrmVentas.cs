@@ -43,6 +43,7 @@ namespace SistemaDeVentas.Formularios
                 MessageBox.Show("Error");
                 return;
             }
+            
             txtNombre.Text = producto.Nombre;
             txtExistencias.Text = producto.Stock.ToString();
             txtCategoria.Text = producto.Categoria;
@@ -121,6 +122,11 @@ namespace SistemaDeVentas.Formularios
 
             clienteId = frmBusqueda.busquedaId;
             Cliente cliente = ClienteService.FindById(clienteId);
+            if(cliente == null)
+            {
+                MessageBox.Show("Error");
+                return;
+            }
             txtNombreCliente.Text = cliente.Nombres;
             txtTelefono.Text = cliente.Telefono;
             txtEmail.Text = cliente.Email;

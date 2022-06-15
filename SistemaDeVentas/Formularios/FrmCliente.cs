@@ -2,6 +2,7 @@
 using SistemaDeVentas.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace SistemaDeVentas.Formularios
@@ -25,7 +26,25 @@ namespace SistemaDeVentas.Formularios
         {
             if (!ValidarCampos())
             {
-                MessageBox.Show("Todos los campos deben ser llenados");
+                MessageBox.Show("Todos los campos deben ser llenados","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            string patronCedula = @"\A[0-9]{3}(\-)[0-9]{6}(\-)[0-9]{4}[A-Z]\Z";
+            if (!Regex.IsMatch(txtCedula.Text, patronCedula))
+            {
+                MessageBox.Show("Error, el formato de la cédula ingresada es invalida", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string patronTelefono = @"\A[0-9]{4}(\-)[0-9]{4}\Z";
+            if (!Regex.IsMatch(txtTelefono.Text, patronTelefono))
+            {
+                MessageBox.Show("Error, el formato del telefono ingresado es invalido","Mensaje de Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            string patronCorreo = @"\A(\w+\.?\w*\@\w+\.)(com)\Z";
+            if (!Regex.IsMatch(txtEmail.Text, patronCorreo))
+            {
+                MessageBox.Show("Error, el formato del correo ingresado es invalido","Mensaje de Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
             Cliente cliente = new()
@@ -140,12 +159,40 @@ namespace SistemaDeVentas.Formularios
                 switch (cmbBusqueda.SelectedIndex)
                 {
                     case 0:
+                        if (string.IsNullOrEmpty(txtBusqueda.Text))
+                        {
+                            MessageBox.Show("Debe escribir un Id","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                            return;
+                        }
+                        if (int.Parse(txtBusqueda.Text) == 0)
+                        {
+                            MessageBox.Show("El Id no puede ser cero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
                         break;
 
                     case 1:
+                        if (string.IsNullOrEmpty(txtBusqueda.Text))
+                        {
+                            MessageBox.Show("Debe escribir el correo","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                            return;
+                        }
+                        string patronCorreo = @"\A(\w+\.?\w*\@\w+\.)(com)\Z";
+                        if (!Regex.IsMatch(txtEmail.Text, patronCorreo))
+                        {
+                            MessageBox.Show("Error, el formato del correo ingresado es invalido", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
                         break;
 
                     case 2:
+                        if (string.IsNullOrEmpty(txtNombres.Text))
+                        {
+                            MessageBox.Show("Debe escribir un nombre","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                            return;
+                        }
                         break;
 
                 }

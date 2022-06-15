@@ -76,19 +76,7 @@ namespace SistemaDeVentas.Infrastructure.Repositories
 
         public Cliente FindById(int id)
         {
-            try
-            {
-                if (id <= 0)
-                {
-                    throw new Exception($"El id {id} no puede ser menor o igual a cero.");
-                }
-
-                return sistemaDeVentasDBContext.Clientes.FirstOrDefault(x => x.Id == id);
-            }
-            catch
-            {
-                throw;
-            }
+            return sistemaDeVentasDBContext.Clientes.FirstOrDefault(x => x.Id == id);
         }
 
         public Cliente FindByName(string name)

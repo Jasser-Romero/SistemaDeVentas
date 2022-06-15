@@ -51,15 +51,17 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtFecha = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gpbCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtCodigoVenta
             // 
-            this.txtCodigoVenta.Location = new System.Drawing.Point(357, 6);
+            this.txtCodigoVenta.Location = new System.Drawing.Point(357, 12);
             this.txtCodigoVenta.Name = "txtCodigoVenta";
             this.txtCodigoVenta.Size = new System.Drawing.Size(155, 23);
             this.txtCodigoVenta.TabIndex = 74;
@@ -67,7 +69,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(270, 9);
+            this.label6.Location = new System.Drawing.Point(270, 15);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 15);
             this.label6.TabIndex = 73;
@@ -76,7 +78,7 @@
             // lblTotalPagar
             // 
             this.lblTotalPagar.AutoSize = true;
-            this.lblTotalPagar.Location = new System.Drawing.Point(651, 251);
+            this.lblTotalPagar.Location = new System.Drawing.Point(646, 267);
             this.lblTotalPagar.Name = "lblTotalPagar";
             this.lblTotalPagar.Size = new System.Drawing.Size(29, 15);
             this.lblTotalPagar.TabIndex = 72;
@@ -85,7 +87,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(623, 226);
+            this.label5.Location = new System.Drawing.Point(618, 242);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 15);
             this.label5.TabIndex = 71;
@@ -93,7 +95,7 @@
             // 
             // btnRealizarVenta
             // 
-            this.btnRealizarVenta.Location = new System.Drawing.Point(532, 393);
+            this.btnRealizarVenta.Location = new System.Drawing.Point(527, 409);
             this.btnRealizarVenta.Name = "btnRealizarVenta";
             this.btnRealizarVenta.Size = new System.Drawing.Size(135, 45);
             this.btnRealizarVenta.TabIndex = 66;
@@ -104,7 +106,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(25, 291);
+            this.dataGridView1.Location = new System.Drawing.Point(20, 307);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(440, 176);
@@ -116,7 +118,7 @@
             this.gpbCliente.Controls.Add(this.txtEmail);
             this.gpbCliente.Controls.Add(this.txtNombreCliente);
             this.gpbCliente.Controls.Add(this.label3);
-            this.gpbCliente.Location = new System.Drawing.Point(23, 187);
+            this.gpbCliente.Location = new System.Drawing.Point(18, 203);
             this.gpbCliente.Name = "gpbCliente";
             this.gpbCliente.Size = new System.Drawing.Size(539, 94);
             this.gpbCliente.TabIndex = 63;
@@ -164,16 +166,16 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(72, 4);
+            this.label10.Location = new System.Drawing.Point(72, 14);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(64, 21);
+            this.label10.Size = new System.Drawing.Size(73, 21);
             this.label10.TabIndex = 60;
-            this.label10.Text = "Ventas";
+            this.label10.Text = "Reporte";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(16, 33);
+            this.pictureBox2.Location = new System.Drawing.Point(8, 45);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(743, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -182,7 +184,7 @@
             // 
             // btnCancelarVenta
             // 
-            this.btnCancelarVenta.Location = new System.Drawing.Point(532, 332);
+            this.btnCancelarVenta.Location = new System.Drawing.Point(527, 348);
             this.btnCancelarVenta.Name = "btnCancelarVenta";
             this.btnCancelarVenta.Size = new System.Drawing.Size(135, 45);
             this.btnCancelarVenta.TabIndex = 75;
@@ -192,7 +194,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(518, 5);
+            this.btnBuscar.Location = new System.Drawing.Point(518, 11);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(64, 22);
             this.btnBuscar.TabIndex = 76;
@@ -208,7 +210,7 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtFecha);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Location = new System.Drawing.Point(17, 69);
+            this.groupBox1.Location = new System.Drawing.Point(12, 85);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(696, 109);
             this.groupBox1.TabIndex = 77;
@@ -269,11 +271,22 @@
             this.label7.TabIndex = 62;
             this.label7.Text = "Fecha";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(8, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 37);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 78;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 479);
+            this.ClientSize = new System.Drawing.Size(814, 516);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnCancelarVenta);
@@ -286,6 +299,7 @@
             this.Controls.Add(this.gpbCliente);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pictureBox2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmReportes";
             this.Text = "FrmReportes";
             this.Load += new System.EventHandler(this.FrmReportes_Load);
@@ -295,6 +309,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,5 +339,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtFecha;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
