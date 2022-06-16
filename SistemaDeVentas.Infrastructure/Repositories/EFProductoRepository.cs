@@ -1,4 +1,5 @@
-﻿using SistemaDeVentas.Domain.Entities;
+﻿using SistemaDeVentas.Api.Contratos;
+using SistemaDeVentas.Domain.Entities;
 using SistemaDeVentas.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,108 +9,47 @@ namespace SistemaDeVentas.Infrastructure.Repositories
 {
     public class EFProductoRepository : IProductoRepository
     {
-        private ISistemaDeVentasDBContext sistemaDeVentasDBContext;
-        public EFProductoRepository(ISistemaDeVentasDBContext sistemaDeVentasDBContext)
+        private IProductoController productoController;
+        public EFProductoRepository(IProductoController productoController)
         {
-            this.sistemaDeVentasDBContext = sistemaDeVentasDBContext;
+            this.productoController = productoController;
         }
         public int Create(Producto t)
         {
-            try
-            {
-                if (t is null)
-                {
-                    throw new ArgumentNullException(nameof(t));
-                }
-
-                sistemaDeVentasDBContext.Productos.Add(t);
-                return sistemaDeVentasDBContext.SaveChanges();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            productoController.Create(t);
+            return 0;
         }
 
         public bool Delete(Producto t)
         {
-            try
-            {
-                if (t is null)
-                {
-                    throw new ArgumentNullException(nameof(t));
-                }
-
-                Producto producto = FindById(t.Id);
-
-                if (producto == null)
-                {
-                    throw new Exception($"El objeto producto con id {t.Id} no existe");
-                }
-
-                sistemaDeVentasDBContext.Productos.Remove(producto);
-
-                int result = sistemaDeVentasDBContext.SaveChanges();
-                return result > 0;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            productoController.Delete(t);
+            return true;
         }
 
         public List<Producto> FindByCategoria(string categoria)
         {
-            return sistemaDeVentasDBContext.Productos.Where(x => x.Categoria.Equals(categoria)).ToList();
+            return productoController.FindByCategoria(categoria);
         }
 
         public Producto FindByCode(string code)
         {
-            return sistemaDeVentasDBContext.Productos.FirstOrDefault(x => x.Codigo.Equals(code));
+            return productoController.FindByCode(code);
         }
 
         public Producto FindById(int id)
         {
-            return sistemaDeVentasDBContext.Productos.FirstOrDefault(x => x.Id == id);
+            return productoController.FindById(id);
         }
 
         public List<Producto> GetAll()
         {
-            return sistemaDeVentasDBContext.Productos.ToList();
+            return productoController.GetAll();
         }
 
         public int Update(Producto t)
         {
-            try
-            {
-                if (t is null)
-                {
-                    throw new ArgumentNullException(nameof(t));
-                }
-
-                Producto producto = FindById(t.Id);
-
-                if (producto == null)
-                {
-                    throw new Exception($"El objeto producto con id {t.Id} no existe");
-                }
-
-                producto.Descripcion = t.Descripcion;
-                producto.Nombre = t.Nombre;
-                producto.Categoria = t.Categoria;
-                producto.PrecioVenta = t.PrecioVenta;
-                producto.Stock = t.Stock;
-
-                sistemaDeVentasDBContext.Productos.Update(producto);
-                return sistemaDeVentasDBContext.SaveChanges();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            productoController.Update(t);
+            return 0;
         }
     }
 }

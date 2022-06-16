@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SistemaDeVentas.Api.Contratos;
+using SistemaDeVentas.Api.Controllers;
 using SistemaDeVentas.AppCore.Interfaces;
 using SistemaDeVentas.AppCore.Services;
 using SistemaDeVentas.Domain.Interfaces;
@@ -39,6 +41,7 @@ namespace SistemaDeVentas
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
             services.AddScoped<ISistemaDeVentasDBContext, SistemaDeVentasDBContext>();
+
 
             services.AddScoped<IVentaRepository, EFVentaRepository>();
             services.AddScoped<IClienteRepository, EFClienteRepository>();

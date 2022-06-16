@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SistemaDeVentas.Api\SistemaDeVentas.Api.csproj" />
     <ProjectReference Include="..\SistemaDeVentas.Domain\SistemaDeVentas.Domain.csproj" />
   </ItemGroup>
 
