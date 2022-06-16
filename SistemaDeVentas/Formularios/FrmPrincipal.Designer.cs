@@ -172,9 +172,10 @@
             this.btnrjGraficas.Name = "btnrjGraficas";
             this.btnrjGraficas.Size = new System.Drawing.Size(156, 45);
             this.btnrjGraficas.TabIndex = 4;
-            this.btnrjGraficas.Text = "Graficas";
+            this.btnrjGraficas.Text = "Dashboard";
             this.btnrjGraficas.TextColor = System.Drawing.Color.White;
             this.btnrjGraficas.UseVisualStyleBackColor = false;
+            this.btnrjGraficas.Click += new System.EventHandler(this.btnrjGraficas_Click);
             // 
             // btnrjReporte
             // 

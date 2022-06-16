@@ -75,7 +75,6 @@ namespace SistemaDeVentas.Infrastructure.Repositories
             return sistemaDeVentasDBContext.Productos.FirstOrDefault(x => x.Id == id);
         }
 
-
         public List<Producto> GetAll()
         {
             return sistemaDeVentasDBContext.Productos.ToList();

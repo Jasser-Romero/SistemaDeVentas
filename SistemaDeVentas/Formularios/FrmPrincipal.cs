@@ -161,5 +161,11 @@ namespace SistemaDeVentas.Formularios
             pboxRestaurar.Visible = false;
             pboxMaximizar.Visible = true;
         }
+
+        private void btnrjGraficas_Click(object sender, EventArgs e)
+        {
+            FrmDashboard frmDashboard = new FrmDashboard();
+            AbrirFormHija(frmDashboard);
+        }
     }
 }

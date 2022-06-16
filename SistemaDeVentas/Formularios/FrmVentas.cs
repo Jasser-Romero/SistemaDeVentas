@@ -38,9 +38,10 @@ namespace SistemaDeVentas.Formularios
 
             productoId = frmBusqueda.busquedaId;
             Producto producto = ProductoService.FindById(productoId);
+
             if(producto == null)
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Error, no selecciono un producto");
                 return;
             }
             
@@ -124,7 +125,7 @@ namespace SistemaDeVentas.Formularios
             Cliente cliente = ClienteService.FindById(clienteId);
             if(cliente == null)
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Error, no selecciono un cliente");
                 return;
             }
             txtNombreCliente.Text = cliente.Nombres;

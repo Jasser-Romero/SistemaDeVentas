@@ -237,7 +237,7 @@
             // 
             // cmbBusqueda
             // 
-            this.cmbBusqueda.BackColor = System.Drawing.Color.Silver;
+            this.cmbBusqueda.BackColor = System.Drawing.SystemColors.Control;
             this.cmbBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBusqueda.FormattingEnabled = true;
             this.cmbBusqueda.Items.AddRange(new object[] {

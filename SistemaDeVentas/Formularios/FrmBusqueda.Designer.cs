@@ -50,7 +50,7 @@
             this.dgvBusqueda.Location = new System.Drawing.Point(12, 97);
             this.dgvBusqueda.Name = "dgvBusqueda";
             this.dgvBusqueda.RowTemplate.Height = 25;
-            this.dgvBusqueda.Size = new System.Drawing.Size(612, 325);
+            this.dgvBusqueda.Size = new System.Drawing.Size(649, 325);
             this.dgvBusqueda.TabIndex = 0;
             this.dgvBusqueda.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBusqueda_CellClick);
             this.dgvBusqueda.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBusqueda_CellDoubleClick);
@@ -61,7 +61,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(689, 21);
+            this.panel1.Size = new System.Drawing.Size(694, 21);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
@@ -71,7 +71,7 @@
             this.pboxCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pboxCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pboxCerrar.Image = ((System.Drawing.Image)(resources.GetObject("pboxCerrar.Image")));
-            this.pboxCerrar.Location = new System.Drawing.Point(655, 2);
+            this.pboxCerrar.Location = new System.Drawing.Point(660, 2);
             this.pboxCerrar.Name = "pboxCerrar";
             this.pboxCerrar.Size = new System.Drawing.Size(22, 17);
             this.pboxCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -119,7 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(689, 452);
+            this.ClientSize = new System.Drawing.Size(694, 465);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);

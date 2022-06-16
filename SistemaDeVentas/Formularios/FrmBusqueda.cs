@@ -36,8 +36,8 @@ namespace SistemaDeVentas.Formularios
 
         private void pboxCerrar_Click(object sender, EventArgs e)
         {
-            //TODO: Validar para no de error
-             this.Close();
+            this.Hide();
+            this.Close();
         }
 
         private void FrmBusqueda_MouseDown(object sender, MouseEventArgs e)
@@ -60,6 +60,11 @@ namespace SistemaDeVentas.Formularios
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

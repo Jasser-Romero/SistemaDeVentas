@@ -234,6 +234,7 @@
             this.txtPrecVentas.Name = "txtPrecVentas";
             this.txtPrecVentas.Size = new System.Drawing.Size(154, 23);
             this.txtPrecVentas.TabIndex = 42;
+            this.txtPrecVentas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecVentas_KeyPress);
             // 
             // rtbDescripcion
             // 

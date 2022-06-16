@@ -195,11 +195,22 @@ namespace SistemaDeVentas.Formularios
             if ((e.KeyChar >=32 && e.KeyChar<=47) || (e.KeyChar>=58 && e.KeyChar<=255))
             {
                
-                MessageBox.Show("Solo numeros debe ingresar");
+                MessageBox.Show("Solo numeros debe ingresar","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 e.Handled=true;
                 return;
             }
 
+        }
+
+        private void txtPrecVentas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+
+                MessageBox.Show("No se pueden letras","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+
+            }
         }
     }
 }
