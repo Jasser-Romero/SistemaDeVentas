@@ -96,7 +96,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(111, 17);
+            this.label1.Location = new System.Drawing.Point(113, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 30);
             this.label1.TabIndex = 3;
@@ -130,7 +130,7 @@
             this.pnlVentasTotales.Controls.Add(this.pictureBox3);
             this.pnlVentasTotales.Controls.Add(this.label1);
             this.pnlVentasTotales.Controls.Add(this.lblTotalVentas);
-            this.pnlVentasTotales.Location = new System.Drawing.Point(28, 85);
+            this.pnlVentasTotales.Location = new System.Drawing.Point(34, 149);
             this.pnlVentasTotales.Name = "pnlVentasTotales";
             this.pnlVentasTotales.Size = new System.Drawing.Size(241, 139);
             this.pnlVentasTotales.TabIndex = 6;
@@ -151,7 +151,7 @@
             this.pnlProductosTotal.Controls.Add(this.pictureBox4);
             this.pnlProductosTotal.Controls.Add(this.label2);
             this.pnlProductosTotal.Controls.Add(this.lblProductosTotales);
-            this.pnlProductosTotal.Location = new System.Drawing.Point(300, 85);
+            this.pnlProductosTotal.Location = new System.Drawing.Point(306, 149);
             this.pnlProductosTotal.Name = "pnlProductosTotal";
             this.pnlProductosTotal.Size = new System.Drawing.Size(241, 139);
             this.pnlProductosTotal.TabIndex = 7;
@@ -172,7 +172,7 @@
             this.pnlClienteTotales.Controls.Add(this.pictureBox5);
             this.pnlClienteTotales.Controls.Add(this.label3);
             this.pnlClienteTotales.Controls.Add(this.lblClientesTotales);
-            this.pnlClienteTotales.Location = new System.Drawing.Point(560, 85);
+            this.pnlClienteTotales.Location = new System.Drawing.Point(566, 149);
             this.pnlClienteTotales.Name = "pnlClienteTotales";
             this.pnlClienteTotales.Size = new System.Drawing.Size(253, 139);
             this.pnlClienteTotales.TabIndex = 7;

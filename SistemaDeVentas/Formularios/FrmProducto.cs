@@ -24,6 +24,7 @@ namespace SistemaDeVentas.Formularios
 
         private void FrmProducto_Load(object sender, EventArgs e)
         {
+            comboBox1.Visible = false;
             LoadDataGridView();
         }
 
@@ -102,6 +103,8 @@ namespace SistemaDeVentas.Formularios
         private void dgvproductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             id = (int)dgvproductos.CurrentRow.Cells[0].Value;
+            if (id != 0)
+                btnImagen.Enabled = false;
 
             Producto producto = ProductoService.FindById(id);
             txtNombre.Text = producto.Nombre;
@@ -156,19 +159,7 @@ namespace SistemaDeVentas.Formularios
                 MessageBox.Show("Seleccione un cliente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            //TODO: Validar el openFileDialog para que no tire error
-            //byte[] file = null;
-            //if(openFileDialog1.OpenFile() != null)
-            //{
-            //    Stream myStream = openFileDialog1.OpenFile();
-            //    using (MemoryStream ms = new MemoryStream())
-            //    {
-            //        myStream.CopyTo(ms);
-            //        file = ms.ToArray();
-            //    }
-            //}
-
+            
 
             Producto producto = new Producto()
             {
@@ -188,6 +179,8 @@ namespace SistemaDeVentas.Formularios
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Clear();
+            btnImagen.Enabled = true;
+            LoadDataGridView();
         }
 
         private void txtExistencias_KeyPress(object sender, KeyPressEventArgs e)
@@ -210,6 +203,88 @@ namespace SistemaDeVentas.Formularios
 
                 MessageBox.Show("No se pueden letras","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
 
+            }
+        }
+
+        private void txtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBusqueda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                if (cmbBusqueda.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar una opcion");
+                    return;
+                }
+                switch (cmbBusqueda.SelectedIndex)
+                {
+                    case 0:
+                        if (string.IsNullOrWhiteSpace(txtBusqueda.Text))
+                        {
+                            MessageBox.Show("Debe escribir un Id", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        if (!int.TryParse(txtBusqueda.Text, out int id2))
+                        {
+                            MessageBox.Show("No ingreso un id");
+                            return;
+                        }
+                        if (int.Parse(txtBusqueda.Text) == 0)
+                        {
+                            MessageBox.Show("El Id no puede ser cero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        Producto producto = ProductoService.FindById(id2);
+                        List<Producto> productos = new List<Producto>() { producto };
+                        dgvproductos.DataSource = productos;
+                        break;
+
+                    case 1:
+                        if (string.IsNullOrWhiteSpace(txtBusqueda.Text))
+                        {
+                            MessageBox.Show("Debe escribir el codigo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        Producto producto1 = ProductoService.FindByCode(txtBusqueda.Text);
+                        List<Producto> productos1 = new List<Producto>() { producto1 };
+                        dgvproductos.DataSource = productos1;
+                        break;
+
+                    case 2:
+                        
+                        break;
+
+
+                }
+            }
+        }
+
+        private void comboBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                List<Producto> productos = ProductoService.FindByCategoria(comboBox1.Text);
+                dgvproductos.DataSource = productos;
+            }
+        }
+
+        private void cmbBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmbBusqueda.SelectedIndex == 2)
+            {
+                comboBox1.Visible = true;
+                txtBusqueda.Visible = false;
+            }
+            else
+            {
+                comboBox1.Visible = false;
+                txtBusqueda.Visible = true;
             }
         }
     }

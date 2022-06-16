@@ -29,6 +29,26 @@ namespace SistemaDeVentas.Formularios
             InitializeComponent();
         }
 
+        private void Limpiar()
+        {
+            nudCantidadVender.Value = 0;
+            txtCategoria.Clear();
+            txtCodigo.Clear();
+            txtCodigoVenta.Clear();
+            txtDescripcion.Clear();
+            txtEmail.Clear();
+            txtExistencias.Clear();
+            txtNombre.Clear();
+            txtNombreCliente.Clear();
+            txtTelefono.Clear();
+            dataGridView1.DataSource = null;
+            productos.Clear();
+            vender.Clear();
+            productosIds.Clear();
+            stocks.Clear();
+            productoId = 0;
+            clienteId = 0;
+        }
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
             FrmBusqueda frmBusqueda = new FrmBusqueda();
@@ -108,7 +128,7 @@ namespace SistemaDeVentas.Formularios
                 vender.Add(productoVentaDTO);
                 productosIds.Add(producto.Id);
 
-                CalcularTotal();
+                lblTotalPagar.Text = vender.Sum(x => x.SubTotal).ToString();
 
                 LoadDataGridView();
             }
@@ -135,7 +155,6 @@ namespace SistemaDeVentas.Formularios
 
         private void btnRealizarVenta_Click(object sender, EventArgs e)
         {
-            //TODO: Hacer este boton y validar stock a vender
             int i = 0;
             if(productoId == 0 || clienteId == 0)
             {
@@ -174,7 +193,7 @@ namespace SistemaDeVentas.Formularios
             }
             
             MessageBox.Show("La venta se ha realizado con exito", "Informacion",MessageBoxButtons.OK,MessageBoxIcon.Information);
-
+            Limpiar();
         }
         private decimal CalcularTotal()
         {
@@ -184,7 +203,6 @@ namespace SistemaDeVentas.Formularios
                 foreach (ProductoVentaDTO producto in vender)
                     total += producto.SubTotal;
             }
-            lblTotalPagar.Text = total.ToString();
             return total;
         }
         private void FrmVentas_Load(object sender, EventArgs e)
@@ -195,6 +213,11 @@ namespace SistemaDeVentas.Formularios
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
 }

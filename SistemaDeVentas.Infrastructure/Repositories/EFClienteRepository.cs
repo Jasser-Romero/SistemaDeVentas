@@ -76,7 +76,15 @@ namespace SistemaDeVentas.Infrastructure.Repositories
 
         public Cliente FindById(int id)
         {
-            return sistemaDeVentasDBContext.Clientes.FirstOrDefault(x => x.Id == id);
+            try
+            {
+                return sistemaDeVentasDBContext.Clientes.FirstOrDefault(x => x.Id == id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public Cliente FindByName(string name)

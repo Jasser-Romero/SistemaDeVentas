@@ -55,6 +55,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnImagen = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.cmbBusqueda = new System.Windows.Forms.ComboBox();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvproductos)).BeginInit();
@@ -139,12 +143,13 @@
             // dgvproductos
             // 
             this.dgvproductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvproductos.Location = new System.Drawing.Point(1, 340);
+            this.dgvproductos.Location = new System.Drawing.Point(2, 344);
             this.dgvproductos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvproductos.Name = "dgvproductos";
+            this.dgvproductos.ReadOnly = true;
             this.dgvproductos.RowHeadersWidth = 51;
             this.dgvproductos.RowTemplate.Height = 29;
-            this.dgvproductos.Size = new System.Drawing.Size(783, 179);
+            this.dgvproductos.Size = new System.Drawing.Size(576, 179);
             this.dgvproductos.TabIndex = 32;
             this.dgvproductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvproductos_CellClick);
             // 
@@ -313,11 +318,66 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // cmbBusqueda
+            // 
+            this.cmbBusqueda.BackColor = System.Drawing.SystemColors.Control;
+            this.cmbBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBusqueda.FormattingEnabled = true;
+            this.cmbBusqueda.Items.AddRange(new object[] {
+            "Id",
+            "Codigo",
+            "Categoria"});
+            this.cmbBusqueda.Location = new System.Drawing.Point(616, 389);
+            this.cmbBusqueda.Name = "cmbBusqueda";
+            this.cmbBusqueda.Size = new System.Drawing.Size(128, 23);
+            this.cmbBusqueda.TabIndex = 52;
+            this.cmbBusqueda.SelectedIndexChanged += new System.EventHandler(this.cmbBusqueda_SelectedIndexChanged);
+            // 
+            // txtBusqueda
+            // 
+            this.txtBusqueda.Location = new System.Drawing.Point(581, 418);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(201, 23);
+            this.txtBusqueda.TabIndex = 51;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
+            this.txtBusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBusqueda_KeyDown);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(604, 359);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(140, 15);
+            this.label1.TabIndex = 50;
+            this.label1.Text = "Busqueda de Productos:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Refresco",
+            "Tecnologia",
+            "Periferico",
+            "Botana",
+            "Uso Basico"});
+            this.comboBox1.Location = new System.Drawing.Point(581, 418);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(201, 23);
+            this.comboBox1.TabIndex = 53;
+            this.comboBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBox1_KeyDown);
+            // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(796, 553);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbBusqueda);
+            this.Controls.Add(this.txtBusqueda);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnImagen);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -384,5 +444,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnImagen;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ComboBox cmbBusqueda;
+        private System.Windows.Forms.TextBox txtBusqueda;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

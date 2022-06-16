@@ -143,6 +143,7 @@ namespace SistemaDeVentas.Formularios
         {
             EmptyTextBoxes();
             id = 0;
+            LoadDatagridView();
         }
 
         private void txtBusqueda_KeyDown(object sender, KeyEventArgs e)
@@ -154,14 +155,17 @@ namespace SistemaDeVentas.Formularios
                     MessageBox.Show("Debe seleccionar una opcion");
                     return;
                 }
-
-                //TODO: Agregar filtro de busqueda
                 switch (cmbBusqueda.SelectedIndex)
                 {
                     case 0:
-                        if (string.IsNullOrEmpty(txtBusqueda.Text))
+                        if (string.IsNullOrWhiteSpace(txtBusqueda.Text))
                         {
                             MessageBox.Show("Debe escribir un Id","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                            return;
+                        }
+                        if (!int.TryParse(txtBusqueda.Text, out int id2))
+                        {
+                            MessageBox.Show("No ingreso un id");
                             return;
                         }
                         if (int.Parse(txtBusqueda.Text) == 0)
@@ -169,31 +173,41 @@ namespace SistemaDeVentas.Formularios
                             MessageBox.Show("El Id no puede ser cero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
-
+                        
+                        Cliente cliente = ClienteService.FindById(id2);
+                        List<Cliente> clientes = new List<Cliente> { cliente };
+                        dgvClientes.DataSource = clientes;
                         break;
 
                     case 1:
-                        if (string.IsNullOrEmpty(txtBusqueda.Text))
+                        if (string.IsNullOrWhiteSpace(txtBusqueda.Text))
                         {
                             MessageBox.Show("Debe escribir el correo","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                             return;
                         }
                         string patronCorreo = @"\A(\w+\.?\w*\@\w+\.)(com)\Z";
-                        if (!Regex.IsMatch(txtEmail.Text, patronCorreo))
+                        if (!Regex.IsMatch(txtBusqueda.Text, patronCorreo))
                         {
                             MessageBox.Show("Error, el formato del correo ingresado es invalido", "Mensaje de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
-
+                        Cliente cliente2 = ClienteService.FindByEmail(txtBusqueda.Text);
+                        List<Cliente> clientes2 = new List<Cliente> { cliente2 };
+                        dgvClientes.DataSource = clientes2;
                         break;
 
                     case 2:
-                        if (string.IsNullOrEmpty(txtNombres.Text))
+                        if (string.IsNullOrWhiteSpace(txtBusqueda.Text))
                         {
                             MessageBox.Show("Debe escribir un nombre","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                             return;
                         }
+                        Cliente cliente3 = ClienteService.FindByName(txtNombres.Text);
+                        List<Cliente> clientes3 = new List<Cliente> { cliente3 };
+                        dgvClientes.DataSource = clientes3;
+
                         break;
+
 
                 }
             }

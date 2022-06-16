@@ -109,6 +109,8 @@ namespace SistemaDeVentas.Formularios
 
         private void btnRealizarVenta_Click(object sender, EventArgs e)
         {
+            Random random = new Random();
+            int numRam = random.Next(100, 350);
             try
             {
                 if (!products.Any())
@@ -125,6 +127,7 @@ namespace SistemaDeVentas.Formularios
                 paginaHtmlTexto = paginaHtmlTexto.Replace("@FECHA", DateTime.Today.ToString("d"));
                 paginaHtmlTexto = paginaHtmlTexto.Replace("@DIRECCION", "Del pali San Judas 3 cuadras al sur");
                 paginaHtmlTexto = paginaHtmlTexto.Replace("@TELEFONO", "8913132");
+                paginaHtmlTexto = paginaHtmlTexto.Replace("@NUMERO", numRam.ToString());
 
                 string filas = string.Empty;
                 decimal total = 0.00M;

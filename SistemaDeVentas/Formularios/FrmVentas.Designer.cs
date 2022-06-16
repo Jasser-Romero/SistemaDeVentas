@@ -64,6 +64,7 @@
             this.lblTotalPagar = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCodigoVenta = new System.Windows.Forms.TextBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gpbProducto.SuspendLayout();
@@ -318,6 +319,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(16, 388);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(440, 176);
             this.dataGridView1.TabIndex = 48;
@@ -411,11 +413,22 @@
             this.txtCodigoVenta.Size = new System.Drawing.Size(155, 23);
             this.txtCodigoVenta.TabIndex = 58;
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(696, 460);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(131, 44);
+            this.btnLimpiar.TabIndex = 59;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // FrmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(866, 577);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.txtCodigoVenta);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblTotalPagar);
@@ -488,5 +501,6 @@
         private System.Windows.Forms.Label lblTotalPagar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtCodigoVenta;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }
