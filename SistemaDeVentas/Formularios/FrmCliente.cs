@@ -202,7 +202,7 @@ namespace SistemaDeVentas.Formularios
                             MessageBox.Show("Debe escribir un nombre","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                             return;
                         }
-                        Cliente cliente3 = ClienteService.FindByName(txtNombres.Text);
+                        Cliente cliente3 = ClienteService.FindByName(txtBusqueda.Text);
                         List<Cliente> clientes3 = new List<Cliente> { cliente3 };
                         dgvClientes.DataSource = clientes3;
 

@@ -140,9 +140,5 @@ namespace SistemaDeVentas.Infrastructure.Repositories
                 throw;
             }
         }
-        public IDbContextTransaction GetTransaction()
-        {
-            return ((SistemaDeVentasDBContext)sistemaDeVentasDBContext).Database.BeginTransaction();
-        }
     }
 }
